@@ -2,7 +2,7 @@
   <div class="mt-10">
     <form
       @submit.prevent="addItem"
-      class="flex px-[2rem] md:px-[10rem] lg:px-[20rem]"
+      class="flex px-[2rem] md:px-[10rem] lg:px-[9rem]"
       action=""
     >
       <input
@@ -24,7 +24,7 @@
       You have {{ todos.length }} tasks left
     </p>
 
-    <ul class="mt-10 px-[2.4rem] md:px-[10.4rem] lg:px-[20.4rem]">
+    <ul class="mt-10 px-[2.4rem] md:px-[10.4rem] lg:px-[9.4rem]">
       <li
         class="mt-[3rem] font-[mali] flex justify-between bg-[rgba(0,0,0,.2)] px-[0.5rem] py-[0.5rem] lg:py-[1rem] rounded-md text-[#929da1] lg:text-lg"
         v-for="{ id, label } in todos"
