@@ -7,7 +7,7 @@
     >
       <input
         v-model.trim="test"
-        class="pl-2 grow outline-none border-2 bg-[rgba(0,0,0,.5)] border-[#67656c] text-white rounded-md text-xs py-[0.5rem] lg:py-[1rem] lg:text-lg"
+        class="pl-2 grow outline-none border-2 bg-[rgba(0,0,0,.5)] border-[#67656c] text-white rounded-md text-xs py-[0.5rem] lg:text-lg"
         placeholder="Type what you need to do"
         type="text"
       />
@@ -26,7 +26,7 @@
 
     <ul class="mt-10 px-[2.4rem] md:px-[10.4rem] lg:px-[9.4rem]">
       <li
-        class="mt-[3rem] font-[mali] flex justify-between bg-[rgba(0,0,0,.2)] px-[0.5rem] py-[0.5rem] lg:py-[1rem] rounded-md text-[#929da1] lg:text-lg"
+        class="mt-[3rem] font-[mali] flex justify-between bg-[rgba(0,0,0,.2)] px-[0.5rem] py-[0.5rem] rounded-md text-[#929da1] lg:text-lg"
         v-for="{ id, label } in todos"
         :key="id"
       >
