@@ -32,7 +32,7 @@
       >
         {{ label }}
         <button
-          @click="deleteItem(todos)"
+          @click="deleteItem(todos.id)"
           class="text-[#929da1] text-xs lg:text-lg bg-black px-2 py-1 rounded-xl"
         >
           delete
@@ -43,18 +43,31 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const test = ref("");
 
 const todos = ref([]);
 
 const addItem = () => {
+  if (localStorage.getItem("todos")) {
+    todos.value = JSON.parse(localStorage.getItem("todos"));
+  }
   todos.value.push({ id: todos.value.length + 1, label: test.value });
+
+  localStorage.setItem("tasks", JSON.stringify(todos.value));
+
   test.value = "";
 };
 
+onMounted(() => {
+  if (localStorage.getItem("tasks")) {
+    todos.value = JSON.parse(localStorage.getItem("tasks"));
+  }
+});
+
 const deleteItem = (id) => {
   todos.value.splice(id, 1);
+  localStorage.setItem("tasks", JSON.stringify(todos.value));
 };
 </script>
