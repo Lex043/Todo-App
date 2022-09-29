@@ -32,7 +32,7 @@
       >
         {{ label }}
         <button
-          @click="deleteItem(todos.id)"
+          @click="deleteItem(id)"
           class="text-[#929da1] text-xs lg:text-lg bg-black px-2 py-1 rounded-xl"
         >
           delete
@@ -53,7 +53,7 @@ const addItem = () => {
   if (localStorage.getItem("todos")) {
     todos.value = JSON.parse(localStorage.getItem("todos"));
   }
-  todos.value.push({ id: todos.value.length + 1, label: test.value });
+  todos.value.push({ id: new Date().getTime(), label: test.value });
 
   localStorage.setItem("tasks", JSON.stringify(todos.value));
 
@@ -66,8 +66,8 @@ onMounted(() => {
   }
 });
 
-const deleteItem = (id) => {
-  todos.value.splice(id, 1);
+const deleteItem = (idx) => {
+  todos.value = todos.value.filter((r) => r.id !== idx);
   localStorage.setItem("tasks", JSON.stringify(todos.value));
 };
 </script>
